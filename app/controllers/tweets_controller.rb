@@ -1,5 +1,9 @@
 class TweetsController < ApplicationController
-
+# before any blog action happens, it will authenticate the user
+before_action :authenticate_user!
+def index
+@tweets = Tweet.all
+end
 
     def index
         @tweets = Tweet.all

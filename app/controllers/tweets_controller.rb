@@ -9,6 +9,12 @@ end
         @tweets = Tweet.all
         end
 
+        def destroy
+            @tweet = Tweet.find(params[:id])
+            @tweet.destroy
+            redirect_to '/', :notice => "Your tweet has been deleted"
+          end
+       
         def new
             @tweet = Tweet.new
             end
@@ -28,3 +34,4 @@ end
     params.require(:tweet).permit(:body)
   end
 end
+
